@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod5
+  labels:
+    env: test
+  annotations:
+    description: In this we gonna use node selctor for running this pods in a specific node.  
+spec:
+  containers:
+    - name: c06
+      image: ubuntu
+      command: ["/bin/bash" , "-c" , "while true; do echo Hello-conatiner-co6; sleep 5; done"]
+  nodeSelector:
+    hardware: minikube
+
+   
+

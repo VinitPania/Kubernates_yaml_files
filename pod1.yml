@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod1
+  annotations:
+    description: Creation a new pod called testpod on 20-11-2023 at 02:24
+  labels:
+    name: basic
+    env: uat
+spec: 
+  containers:
+    - name: c00 
+      image: ubuntu
+      command: ["/bin/bash" , "-c" , "while true; do echo Hello-Vinit; sleep 5; done"]
+  restartPolicy: Never #Default to always

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod3
+  annotations:
+    description: Now we are using environment variable in a yaml file.
+  labels:
+    name: environments
+spec:
+  containers:
+  - name: c04
+    image: ubuntu
+    command: ["/bin/bash", "-c", "while true;  do  echo  Hello-container-co4 ; sleep 5 ; done"]
+    env:
+    - name: MYNAME
+      value: Vinit
+  restartPolicy: Never
+  

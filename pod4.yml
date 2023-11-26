@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod4
+  annotations:
+    description: we gonna open the portno 80 for httpd server
+spec:
+  containers:
+  - name: c05
+    image: httpd
+    ports:
+      - containerPort: 80

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: testpod6
+  annotations:
+    description: In this yaml file we gonna use replica set for creating replica sets with 6 pods
+spec:
+  replicas: 3
+  selector: 
+    name : replica
+  template:
+    metadata:
+      name: testpod6
+      labels:
+        name: replica
+        env: test
+    spec:
+      containers:
+        - name: c07
+          image: ubuntu
+          command: ["/bin/bash","-c", "while true; do echo Hello-container-co3; sleep 5; done"]

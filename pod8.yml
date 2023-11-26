@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testpod8
+  annotations:
+    description: Using deployments object  to deploy in k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: testpod8
+
+  template:
+    metadata:
+      labels:
+        name: testpod8
+      annotations:
+        description: Only testpod8  
+    spec:
+      containers:
+      - name: testpod8
+        image: httpd
+        command: ["/bin/bash", "-c", "while true; do echo This is done through deployments and new replica set is created __kubectl get rs ; sleep 5 ; done"]
